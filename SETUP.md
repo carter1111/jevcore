@@ -81,7 +81,7 @@ npx jevcoreagent doctor        # read-only health check: dist / MCP / credential
 | `init --apply` | Apply the plan (today `--apply` focuses on supported adapters such as Claude project scope) |
 | `doctor` | Read-only diagnostics; **never prints** secret values |
 
-Before npm publish, run from this repo:
+**From source (contributors):** clone, build, then use `node dist/cli.js`:
 
 ```bash
 git clone https://github.com/carter1111/jevcore
@@ -140,7 +140,7 @@ Runtime blueprint: [`Docs/JEVCore.md`](./Docs/JEVCore.md)
 
 ## 6. Honest limits / not done yet
 
-- The npm package is **`jevcoreagent`** (unscoped `jevcore` is taken on npm). CLI bins: `jevcoreagent`, `jevcore`, `jev-guard`.  
+- **Published on npm:** [`jevcoreagent@0.1.1`](https://www.npmjs.com/package/jevcoreagent) — `npx jevcoreagent init` works without cloning. Unscoped `jevcore` is taken on npm. CLI bins: `jevcoreagent`, `jevcore`, `jev-guard`.  
 - We **do not** auto-switch your host model; we only advise a tier.  
 - We **do not** upload your code for training; evidence is local and opt-in.  
 - Repo folder / GitHub name / `~/.cursor/jev-coding-guard/` are **not** fully renamed yet (intentional phase C).

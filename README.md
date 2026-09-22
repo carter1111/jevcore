@@ -3,9 +3,9 @@
 **Product:** [JevCore Agent](./Docs/JEVCore.md) (JEV Coding Harness)  
 **Setup (users):** **[`SETUP.md`](./SETUP.md)** — `npx jevcoreagent init`  
 **Naming lock:** [`Docs/NAMING.md`](./Docs/NAMING.md)  
-**npm package:** `jevcore` (formerly `jev-coding-guard`; still `private: true`, unpublished)  
-**CLI:** `jevcore` (preferred) · `jev-guard` (deprecated alias → same `dist/cli.js`)  
-**GitHub (target):** [`jevcore`](https://github.com/carter1111/jevcore) · **Runtime dir (compat):** `~/.cursor/jev-coding-guard/`  
+**npm package:** [`jevcoreagent@0.1.1`](https://www.npmjs.com/package/jevcoreagent)  
+**CLI:** `npx jevcoreagent …` · after install: `jevcore` / `jev-guard` (aliases → same `dist/cli.js`)  
+**GitHub:** [`carter1111/jevcore`](https://github.com/carter1111/jevcore) · **Runtime dir (compat):** `~/.cursor/jev-coding-guard/`  
 **License:** [Apache-2.0](./LICENSE) · [NOTICE](./NOTICE.md) · [Trademarks](./TRADEMARKS.md) · [Security](./SECURITY.md)  
 **Site:** [jevcore.io](https://www.jevcore.io) · **X:** [@JevCoreAgent](https://x.com/JevCoreAgent)
 
