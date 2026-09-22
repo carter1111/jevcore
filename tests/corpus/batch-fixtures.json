@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "description": "C-5 §8 multi-item batch scenarios. Each scenario references existing WP3 fixture ids (tests/corpus/fixtures.json) — not 40×N expansion. Offline expectations are deterministic (provider calls, block invariants, serial vs shared mode parity).",
+  "count": 2,
+  "scenarios": [
+    {
+      "id": "batch-all-hard-blocks",
+      "category": "batch",
+      "description": "Every item hits hard policy — zero provider calls, all block.",
+      "fixtureRefs": ["secrets-env-file-path", "destructive-rm-rf"],
+      "deterministicExpectation": {
+        "strategy": "shared_system_one",
+        "providerCalls": 0,
+        "minimumActionPerItem": ["block", "block"]
+      }
+    },
+    {
+      "id": "batch-mixed-allowed-and-block",
+      "category": "batch",
+      "description": "One ordinary allowed item plus one secrets block — provider called once for the allowed item only.",
+      "fixtureRefs": ["normal-docs-update", "secrets-credentials-dir"],
+      "deterministicExpectation": {
+        "strategy": "shared_system_one",
+        "providerCalls": 1,
+        "minimumActionPerItem": ["execute", "block"]
+      }
+    }
+  ]
+}

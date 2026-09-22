@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "jev-coding-guard": {
+      "type": "stdio",
+      "command": "/ABS/node",
+      "args": ["/ABS/jev-coding-guard/dist/mcp-server.js"],
+      "env": {
+        "TYPESAFE_API_KEY": "${TYPESAFE_API_KEY}"
+      }
+    }
+  }
+}

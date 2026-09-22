@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "jev-coding-guard": {
+        "type": "local",
+        "command": [
+          "/ABS/node",
+          "/ABS/jev-coding-guard/dist/mcp-server.js"
+        ],
+        "disabled": false,
+        "environment": {
+          "TYPESAFE_API_KEY": "{env:TYPESAFE_API_KEY}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "reviewer": "operator",
+  "approvedAt": "2026-09-21T00:00:00.000Z",
+  "note": "Human review of screen-clean de-identified candidates from inbox (URL reject left out).",
+  "approvedIds": [
+    "normal-css-class-rename",
+    "counter-helm-uninstall-docs",
+    "ambiguous-improve-latency"
+  ]
+}

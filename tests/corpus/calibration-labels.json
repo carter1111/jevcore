@@ -1,0 +1,205 @@
+{
+  "version": "2026-09-21.c2",
+  "description": "C-2 labeled calibration set for offline threshold evaluation. Each fixture supplies a synthetic provider judgment and the expected final execution mode after hard policy + risk composition. No live Jev or network required.",
+  "thresholdDefaults": {
+    "lowConfidenceThreshold": 0.6,
+    "planRiskThreshold": 0.5,
+    "approvalRiskThreshold": 0.8,
+    "securityReviewThreshold": 0.7
+  },
+  "count": 32,
+  "fixtures": [
+    {
+      "id": "cal-exec-low-risk",
+      "input": { "task": "Rename a local helper function", "hints": { "touchedFiles": ["src/util.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.92, "riskScore": 0.12, "riskConfidence": 0.88, "securityReviewNoul": 0.05 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-exec-frontend-css",
+      "input": { "task": "Adjust button padding in the login component", "hints": { "touchedFiles": ["src/components/Login.tsx"] } },
+      "judgment": { "kind": "frontend", "kindConfidence": 0.9, "riskScore": 0.08, "riskConfidence": 0.85, "securityReviewNoul": 0.02 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-plan-medium-risk",
+      "input": { "task": "Refactor the parser module across several files", "hints": { "touchedFiles": ["src/parser.ts", "src/lexer.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.85, "riskScore": 0.55, "riskConfidence": 0.8, "securityReviewNoul": 0.1 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-plan-risk-at-threshold",
+      "input": { "task": "Restructure the module boundaries", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.88, "riskScore": 0.52, "riskConfidence": 0.82, "securityReviewNoul": 0.08 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-approve-high-risk",
+      "input": { "task": "Replace the billing integration with a new provider", "hints": { "touchedFiles": ["src/billing/stripe.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.87, "riskScore": 0.85, "riskConfidence": 0.9, "securityReviewNoul": 0.4 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-approve-critical-risk",
+      "input": { "task": "Rewrite the payment capture flow", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.9, "riskScore": 0.95, "riskConfidence": 0.92, "securityReviewNoul": 0.5 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-low-conf-kind",
+      "input": { "task": "Update documentation for the API", "hints": {} },
+      "judgment": { "kind": "research", "kindConfidence": 0.35, "riskScore": 0.15, "riskConfidence": 0.85, "securityReviewNoul": 0.05 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-low-conf-risk",
+      "input": { "task": "Tweak the error message copy", "hints": {} },
+      "judgment": { "kind": "frontend", "kindConfidence": 0.88, "riskScore": 0.2, "riskConfidence": 0.4, "securityReviewNoul": 0.05 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-low-conf-both",
+      "input": { "task": "Investigate an intermittent test failure", "hints": {} },
+      "judgment": { "kind": "testing", "kindConfidence": 0.45, "riskScore": 0.25, "riskConfidence": 0.42, "securityReviewNoul": 0.1 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-sec-review-noul",
+      "input": { "task": "Adjust session cookie settings", "hints": { "touchedFiles": ["src/middleware/session.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.9, "riskScore": 0.35, "riskConfidence": 0.88, "securityReviewNoul": 0.82 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-sec-review-low-conf",
+      "input": { "task": "Change JWT validation parameters", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.55, "riskScore": 0.4, "riskConfidence": 0.55, "securityReviewNoul": 0.75 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-factor-irreversible",
+      "input": { "task": "Apply a one-way data transformation script", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.88, "riskScore": 0.45, "riskConfidence": 0.85, "riskFactors": ["irreversible"], "securityReviewNoul": 0.15 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-factor-unclear-low-conf",
+      "input": { "task": "Fix the flaky integration test", "hints": {} },
+      "judgment": { "kind": "testing", "kindConfidence": 0.5, "riskScore": 0.3, "riskConfidence": 0.55, "riskFactors": ["unclear"], "securityReviewNoul": 0.1 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-verification-failed",
+      "input": { "task": "Deploy the staging service update", "hints": {} },
+      "judgment": { "kind": "devops", "kindConfidence": 0.85, "riskScore": 0.4, "riskConfidence": 0.8, "securityReviewNoul": 0.2, "verificationFailed": true },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-authz",
+      "input": { "task": "Update the OAuth callback handler", "hints": { "touchedFiles": ["src/auth/oauth.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.9, "riskScore": 0.2, "riskConfidence": 0.88, "securityReviewNoul": 0.15 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-pay",
+      "input": { "task": "Change the Stripe subscription price id", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.88, "riskScore": 0.25, "riskConfidence": 0.85, "securityReviewNoul": 0.2 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-infra",
+      "input": { "task": "Apply the terraform module for staging", "hints": {} },
+      "judgment": { "kind": "devops", "kindConfidence": 0.86, "riskScore": 0.3, "riskConfidence": 0.82, "securityReviewNoul": 0.1 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-block-secrets",
+      "input": { "task": "Update environment configuration", "hints": { "touchedFiles": [".env"] } },
+      "judgment": { "kind": "general", "kindConfidence": 0.9, "riskScore": 0.05, "riskConfidence": 0.9, "securityReviewNoul": 0.01 },
+      "expectedMode": "block"
+    },
+    {
+      "id": "cal-policy-block-destructive",
+      "input": { "task": "Remove old build artifacts with rm -rf ./dist", "hints": {} },
+      "judgment": { "kind": "devops", "kindConfidence": 0.9, "riskScore": 0.1, "riskConfidence": 0.9, "securityReviewNoul": 0.05 },
+      "expectedMode": "block"
+    },
+    {
+      "id": "cal-fallback-provider-fail",
+      "input": { "task": "Ordinary refactor with provider unavailable", "hints": {} },
+      "judgment": { "failed": true },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-fallback-invalid-risk",
+      "input": { "task": "Small documentation tweak", "hints": {} },
+      "judgment": { "kind": "research", "kindConfidence": 0.8, "riskScore": 99, "riskConfidence": 0.8, "securityReviewNoul": 0.05, "failed": false },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-exec-testing",
+      "input": { "task": "Add a unit test for the sorting helper", "hints": { "touchedFiles": ["tests/sort.test.ts"] } },
+      "judgment": { "kind": "testing", "kindConfidence": 0.91, "riskScore": 0.1, "riskConfidence": 0.9, "securityReviewNoul": 0.03 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-plan-web3-moderate",
+      "input": { "task": "Update the contract ABI bindings", "hints": { "touchedFiles": ["src/contracts/abi.ts"] } },
+      "judgment": { "kind": "web3", "kindConfidence": 0.84, "riskScore": 0.48, "riskConfidence": 0.8, "securityReviewNoul": 0.25 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-approve-web3-asset",
+      "input": { "task": "Call ERC-20 approve for the router spender", "hints": {} },
+      "judgment": { "kind": "web3", "kindConfidence": 0.88, "riskScore": 0.6, "riskConfidence": 0.85, "securityReviewNoul": 0.3 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-factor-unclear-high-conf",
+      "input": { "task": "Refactor the shared data layer across several modules", "hints": { "touchedFiles": ["src/data/index.ts", "src/data/store.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.6, "riskScore": 0.37, "riskConfidence": 0.89, "riskFactors": [], "securityReviewNoul": 0.05 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-factor-scope-high-conf",
+      "input": { "task": "Rename helper functions in the util module", "hints": {} },
+      "judgment": { "kind": "backend", "kindConfidence": 0.9, "riskScore": 0.2, "riskConfidence": 0.9, "riskFactors": ["scope"], "securityReviewNoul": 0.05 },
+      "expectedMode": "plan_first"
+    },
+    {
+      "id": "cal-factor-unclear-benign",
+      "input": { "task": "Add a token to the lexer for the parser grammar", "hints": { "touchedFiles": ["src/parser/lexer.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.9, "riskScore": 0.06, "riskConfidence": 0.85, "riskFactors": ["unclear"], "securityReviewNoul": 0.05 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-policy-ci-secrets-2",
+      "input": { "task": "Wire the deploy secrets into the release pipeline job", "hints": { "touchedFiles": [".github/workflows/release.yml"] } },
+      "judgment": { "kind": "devops", "kindConfidence": 0.9, "riskScore": 0.2, "riskConfidence": 0.88, "securityReviewNoul": 0.1 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-publish",
+      "input": { "task": "npm publish --access public for the shared utility library", "hints": { "touchedFiles": ["package.json"] } },
+      "judgment": { "kind": "devops", "kindConfidence": 0.88, "riskScore": 0.25, "riskConfidence": 0.9, "securityReviewNoul": 0.05 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-policy-pii-egress",
+      "input": { "task": "Export customer data for the analytics partner review", "hints": { "touchedFiles": ["scripts/export-profiles.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.85, "riskScore": 0.5, "riskConfidence": 0.85, "securityReviewNoul": 0.2 },
+      "expectedMode": "approval_required"
+    },
+    {
+      "id": "cal-corpus-random-seed-docs",
+      "input": { "task": "Document how deterministic random seed values work in the unit tests", "hints": { "touchedFiles": ["docs/testing/random-seeds.md"] } },
+      "judgment": { "kind": "testing", "kindConfidence": 0.92, "riskScore": 0.08, "riskConfidence": 0.88, "riskFactors": ["unclear"], "securityReviewNoul": 0.05 },
+      "expectedMode": "execute"
+    },
+    {
+      "id": "cal-corpus-cross-team-api",
+      "input": { "task": "Refactor the shared API contract across backend services and mobile clients", "hints": { "touchedFiles": ["src/api/contract.ts", "mobile/api/client.ts"] } },
+      "judgment": { "kind": "backend", "kindConfidence": 0.7, "riskScore": 0.4, "riskConfidence": 0.88, "riskFactors": [], "securityReviewNoul": 0.05 },
+      "expectedMode": "plan_first"
+    }
+  ]
+}

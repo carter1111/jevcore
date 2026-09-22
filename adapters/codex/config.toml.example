@@ -1,0 +1,10 @@
+# Example fragment for ~/.codex/config.toml
+#
+# Replace /ABS/node and /ABS/jev-coding-guard with absolute paths.
+# Keep credentials in the host environment — do not paste key values here.
+
+[mcp_servers.jev-coding-guard]
+command = "/ABS/node"
+args = ["/ABS/jev-coding-guard/dist/mcp-server.js"]
+startup_timeout_sec = 30.0
+env_vars = ["TYPESAFE_API_KEY"]

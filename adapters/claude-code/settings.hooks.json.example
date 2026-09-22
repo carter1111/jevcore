@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/ABS/node /ABS/jev-coding-guard/adapters/claude-code/hooks/pretooluse-jev-check.mjs",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

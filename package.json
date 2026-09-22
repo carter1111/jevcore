@@ -1,0 +1,80 @@
+{
+  "name": "jevcore",
+  "version": "0.1.0",
+  "description": "JevCore Agent — local coding harness (Jev decisions, Guard hard policy, Profile authority, MCP + CLI). Package formerly jev-coding-guard.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carter1111/jevcore.git"
+  },
+  "homepage": "https://www.jevcore.io",
+  "bugs": {
+    "url": "https://github.com/carter1111/jevcore/issues"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "jevcore": "dist/cli.js",
+    "jev-guard": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start:mcp": "node dist/mcp-server.js",
+    "jevcore": "node dist/cli.js",
+    "jev-guard": "node dist/cli.js",
+    "test": "node --test --test-reporter=spec \"tests/*.test.mjs\"",
+    "demo:cursor": "node tools/cursor-user-demo.mjs",
+    "bench:latency:live": "node tools/latency-bench.mjs --live",
+    "eval:corpus": "node tools/corpus-eval.mjs",
+    "eval:corpus:live": "node tools/corpus-eval.mjs --live",
+    "measure:routing": "node tools/routing-measure.mjs",
+    "measure:fan-out": "node tools/fan-out-measure.mjs",
+    "measure:fan-out:live": "node tools/fanout-live-compare.mjs",
+    "eval:shadow": "node tools/shadow-eval.mjs",
+    "screen:corpus": "node tools/corpus-screen.mjs",
+    "corpus:propose": "node tools/corpus-propose.mjs",
+    "corpus:merge": "node tools/corpus-merge.mjs",
+    "propose:thresholds": "node tools/threshold-propose.mjs",
+    "verify:hosts": "node tools/verify-hosts.mjs",
+    "eval:ab": "node tools/ab-harness.mjs",
+    "eval:ab:live": "node tools/ab-harness.mjs --live",
+    "calibrate:thresholds": "node tools/threshold-calibrate.mjs",
+    "calibrate:thresholds:grid": "node tools/threshold-calibrate.mjs --grid",
+    "calibrate:thresholds:live": "node tools/threshold-calibrate-live.mjs",
+    "calibrate:thresholds:live:stability": "node tools/threshold-calibrate-live.mjs --runs 5",
+    "measure:batch:live": "node tools/batch-live-compare.mjs",
+    "verify:adapters": "node tools/verify-adapters.mjs",
+    "verify:claude": "node tools/verify-claude-adapter.mjs",
+    "verify:release": "node tools/verify-release.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "jevcore",
+    "jevcore-agent",
+    "typesafe",
+    "jev",
+    "coding-agent",
+    "decision-layer",
+    "guardrails",
+    "mcp",
+    "evidence"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "@typesafe-ai/sdk": "^0.6.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

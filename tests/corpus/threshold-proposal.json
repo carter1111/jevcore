@@ -1,0 +1,27 @@
+{
+  "version": "2026-09-21.threshold-propose",
+  "baseline": {
+    "thresholds": {
+      "lowConfidenceThreshold": 0.6,
+      "planRiskThreshold": 0.5,
+      "approvalRiskThreshold": 0.8,
+      "securityReviewThreshold": 0.7
+    },
+    "accuracy": 1,
+    "correct": 32,
+    "total": 32
+  },
+  "best": {
+    "accuracy": 1,
+    "thresholds": {
+      "lowConfidenceThreshold": 0.6,
+      "planRiskThreshold": 0.5,
+      "approvalRiskThreshold": 0.8,
+      "securityReviewThreshold": 0.7
+    }
+  },
+  "improved": false,
+  "recommendation": "Defaults already optimal on the labeled set — do not change.",
+  "hostModelForcing": "blocked — MCP modelSelection remains advisory only; no apply path exists.",
+  "applyInstructions": "Only if improved===true AND product owner approves: node tools/threshold-propose.mjs --apply-defaults --i-approve-threshold-change"
+}

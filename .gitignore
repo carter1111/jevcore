@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Test artifacts
+coverage/
+.vitest/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Not part of OSS — separate jevcore-website repo
+marketinglandingweb/
+
+# Local DevOps / release runbooks — NEVER publish to GitHub OSS
+DevOps/
+
+# Internal agent / planning (keep local or in private wiki)
+HANDOFF.md
+TASKS.md
+Docs/UX-Function-Improvement.md
+Docs/JEV-Guard*
+Docs/JevCore_PRD.md
+Docs/Local_Guard_Report.md
+Docs/JEV-Partner-Profile-Memory.md
+.docs/PUBLIC-RELEASE-AUDIT.md
+*.pem
+*.key
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
