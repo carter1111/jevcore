@@ -12,8 +12,8 @@
 |---|---|---|
 | **Product** | **JevCore Agent** | User-facing; Logo / H1 / CTA / report voice |
 | **Category** | **JEV Coding Harness** | Hero eyebrow: `JEV Coding Harness · local runtime` |
-| **npm package** | **`jevcore`** | `package.json` `name` (still `private: true` until publish) |
-| **Primary CLI** | **`jevcore`** | User install line: `npx jevcore init` |
+| **npm package** | **`jevcoreagent`** | Unscoped `jevcore` taken on npm; publish as `jevcoreagent` |
+| **Primary CLI** | **`jevcoreagent`** / **`jevcore`** | Install: `npx jevcoreagent init` (bin aliases include `jevcore`) |
 | **CLI alias** | **`jev-guard`** | Deprecated; same `dist/cli.js`; do not delete yet |
 | **Guard module** | **JEV Guard** | Hard-policy layer **inside** the product — never the product name |
 | **Contract field** | **`agent`** | JEVCore Agent Contract on MCP results; keep `executionMode` |
@@ -21,9 +21,10 @@
 | **Runtime dir** | `~/.cursor/jev-coding-guard/` | Deferred; must not block CLI brand |
 
 ```text
-User mental model:  I install JevCore Agent → I type jevcore
+User mental model:  I install JevCore Agent → I type jevcore / jevcoreagent
 Engineering truth:  Agent = Setup + Decision + Workflow + Guard + Evidence + Adapter
                     Guard = one module (hard policy), not the whole product
+                    npm package = jevcoreagent (name collision avoidance)
                     jev-guard = old bin alias → same binary
 ```
 
@@ -33,11 +34,11 @@ Engineering truth:  Agent = Setup + Decision + Workflow + Guard + Evidence + Ada
 
 **In scope**
 
-- `package.json`: `"name": "jevcore"`
-- `bin`: `jevcore` + `jev-guard` → `dist/cli.js`
+- `package.json`: `"name": "jevcoreagent"` (was briefly `jevcore`; unscoped taken)
+- `bin`: `jevcoreagent` + `jevcore` + `jev-guard` → `dist/cli.js`
 - npm scripts: `jevcore` (+ keep `jev-guard`)
-- CLI usage strings prefer `jevcore`
-- Landing / README install copy → `npx jevcore init`
+- CLI usage strings prefer `jevcoreagent` for install / `jevcore` as alias
+- Landing / README install copy → `npx jevcoreagent init`
 - FAQ: `jev-guard` is deprecated alias
 
 **Phase C — at public launch**
@@ -53,9 +54,9 @@ Engineering truth:  Agent = Setup + Decision + Workflow + Guard + Evidence + Ada
 ## 3. Install commands (canonical)
 
 ```bash
-npx jevcore init
-npx jevcore init --apply
-npx jevcore doctor
+npx jevcoreagent init
+npx jevcoreagent init --apply
+npx jevcoreagent doctor
 ```
 
 From a clone before publish:
@@ -68,7 +69,7 @@ node dist/cli.js doctor
 Library import (after install / link):
 
 ```ts
-import { guardOnce } from "jevcore";
+import { guardOnce } from "jevcoreagent";
 ```
 
 ---
@@ -80,7 +81,7 @@ When copy mentions install or brand, prefer:
 | Prefer | Avoid as primary |
 |---|---|
 | JevCore Agent | “the Guard product” |
-| `jevcore` / `npx jevcore init` | `npx jev-guard init` as Hero |
+| `jevcoreagent` / `npx jevcoreagent init` | `npx jev-guard init` as Hero; unscoped `jevcore` npm name |
 | JEV Guard = module | JEV Guard = product name |
 | `jev-coding-guard` = repo/path compat | Presenting it as the user-facing brand |
 

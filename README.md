@@ -1,7 +1,7 @@
 # jevcore
 
 **Product:** [JevCore Agent](./Docs/JEVCore.md) (JEV Coding Harness)  
-**Setup (users):** **[`SETUP.md`](./SETUP.md)** — `npx jevcore init`  
+**Setup (users):** **[`SETUP.md`](./SETUP.md)** — `npx jevcoreagent init`  
 **Naming lock:** [`Docs/NAMING.md`](./Docs/NAMING.md)  
 **npm package:** `jevcore` (formerly `jev-coding-guard`; still `private: true`, unpublished)  
 **CLI:** `jevcore` (preferred) · `jev-guard` (deprecated alias → same `dist/cli.js`)  
@@ -123,9 +123,9 @@ output never echoes the command (optional `--echo-hash` only).
 
 ```sh
 # Preferred (after publish / local link):
-npx jevcore init
-npx jevcore init --apply
-npx jevcore doctor
+npx jevcoreagent init
+npx jevcoreagent init --apply
+npx jevcoreagent doctor
 
 # From a clone today:
 node dist/cli.js doctor                          # read-only diagnostics
@@ -143,7 +143,7 @@ via `adapters/claude-code/install.mjs` — never `~/.claude.json`, never key val
 ### Quick (default TypeSafe provider)
 
 ```ts
-import { guardOnce } from "jevcore";
+import { guardOnce } from "jevcoreagent";
 
 // TYPESAFE_API_KEY must be set (or pass apiKey to TypeSafeProvider)
 const result = await guardOnce({
@@ -161,7 +161,7 @@ The engine only depends on the `DecisionProvider` interface, so you can swap
 the real TypeSafe client for the offline `RuleProvider` or your own:
 
 ```ts
-import { Guard, RuleProvider } from "jevcore";
+import { Guard, RuleProvider } from "jevcoreagent";
 
 const guard = new Guard(new RuleProvider());
 const r = await guard.decide({ task: "Add docs for the API" });

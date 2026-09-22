@@ -46,7 +46,7 @@ Replace `/ABS/...` and `/Users/YOU/...` with your real absolute paths. Keep the 
 4. Reload MCP in Cursor (Settings → MCP), then run:
 
 ```bash
-npx jevcore doctor
+npx jevcoreagent doctor
 # or from a clone:
 node dist/cli.js doctor
 ```
@@ -70,9 +70,9 @@ More host-specific templates: [`Docs/mcp-setup.md`](./Docs/mcp-setup.md).
 ## 2. Install / wire the runtime
 
 ```bash
-npx jevcore init          # dry-run: show the plan, write nothing
-npx jevcore init --apply  # after you confirm, write adapters (where supported)
-npx jevcore doctor        # read-only health check: dist / MCP / credentials / hooks
+npx jevcoreagent init          # dry-run: show the plan, write nothing
+npx jevcoreagent init --apply  # after you confirm, write adapters (where supported)
+npx jevcoreagent doctor        # read-only health check: dist / MCP / credentials / hooks
 ```
 
 | Command | What it does |
@@ -140,7 +140,7 @@ Runtime blueprint: [`Docs/JEVCore.md`](./Docs/JEVCore.md)
 
 ## 6. Honest limits / not done yet
 
-- The npm name is **`jevcore`**, but the package may still be `private: true` and **unpublished**; public `npx jevcore` works only after publish.  
+- The npm package is **`jevcoreagent`** (unscoped `jevcore` is taken on npm). CLI bins: `jevcoreagent`, `jevcore`, `jev-guard`.  
 - We **do not** auto-switch your host model; we only advise a tier.  
 - We **do not** upload your code for training; evidence is local and opt-in.  
 - Repo folder / GitHub name / `~/.cursor/jev-coding-guard/` are **not** fully renamed yet (intentional phase C).

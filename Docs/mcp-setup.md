@@ -26,7 +26,7 @@ cd jev-coding-guard   # repo folder name (unchanged for now)
 npm install
 npm run build
 # preferred CLI name after link/publish:
-#   npx jevcore doctor
+#   npx jevcoreagent doctor
 # from clone today:
 node dist/cli.js doctor
 ```
